@@ -30,9 +30,10 @@ run_soupx(
 SoupX-corrected gene expression matrix.
 }
 \description{
-\code{run_soupx()} wraps the normal SoupX workflow into a single function for convenience, with options
-as to whether the plots and outputs should be saved to disk.
+\code{run_soupx()} wraps the normal SoupX workflow, with default parameters, into a single
+function for convenience, with options as to whether the plots and outputs should be saved to disk.
 }
 \examples{
-soup <- wakelin::run_soupx(fpath = "scrnaseq/outs/tw2_uninjured/", out_save = TRUE, plot_save = TRUE)
+fpath <- "/Users/griffen/Documents/thesis-code/scrnaseq/outs/tw2_uninjured/"
+soup <- wakelin::run_soupx(fpath = fpath, out_save = FALSE, plot_save = FALSE)
 }
