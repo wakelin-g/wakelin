@@ -23,48 +23,38 @@
 run_soupx <- function(fpath, out_save = FALSE, out_dir = "scrnaseq/outs_soupx/", plot_save = FALSE, force = FALSE, verbose = TRUE) {
   fname <- get_fname(fpath)
   outfile <- paste0(out_dir, fname, "_soupx.mtx")
-  if (verbose) {
-    message("--- Ambient RNA estimation ---")
-  }
+
+  msg_verbose("--- Ambient RNA estimation ---")
+
   if (file.exists(outfile)) {
     if (!force) {
-      message("File: '", outfile, "' already exists. Skipping.")
+      msg_verbose("File: '", outfile, "' already exists. Skipping.")
       return(NULL)
     }
   }
 
-  if (verbose) {
-    message("Opening dataset '", fname, "'...")
-  }
+  msg_verbose("Opening dataset '", fname, "'...")
   soup <- load10X(fpath, verbose = verbose)
   if (plot_save) {
     if (!dir.exists(out_dir)) {
       dir.create(out_dir)
     }
-    if (verbose) {
-      message("Estimating contamination; saving soupX plot.")
-    }
+    msg_verbose("Estimating contamination; saving soupX plot.")
     svg(filename = paste0(out_dir, fname, "_soupx_est_cont.svg"))
     soup <- autoEstCont(soup, doPlot = TRUE, verbose = verbose)
     dev.off()
   } else {
-    if (verbose) {
-      message("Estimating contamination; not saving soupX plot.")
-    }
+    msg_verbose("Estimating contamination; not saving soupX plot.")
     soup <- autoEstCont(soup, doPlot = FALSE, verbose = verbose)
   }
-  if (verbose) {
-    message("Adjusting counts based on estimated contamination.")
-  }
+  msg_verbose("Adjusting counts based on estimated contamination.")
   soup_out <- adjustCounts(soup, verbose = 1)
   if (out_save) {
-    if (verbose) {
-      message("Saving soupX outs to '", out_dir, fname, "_soupx.mtx'...")
-      if (!dir.exists(out_dir)) {
-        dir.create(out_dir)
-      }
-      writeMM(soup_out, file = outfile)
+    if (!dir.exists(out_dir)) {
+      dir.create(out_dir)
     }
+    msg_verbose("Saving SoupX outs to'", out_dir, fname, "_soupx.mtx'.")
+    writeMM(soup_out, file = outfile)
   }
   soup_out
 }
