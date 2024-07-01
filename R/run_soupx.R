@@ -16,8 +16,12 @@
 #' @examples
 #' fpath <- "/Users/griffen/Documents/thesis-code/scrnaseq/outs/tw2_uninjured/"
 #' soup <- wakelin::run_soupx(fpath = fpath, out_save = FALSE, plot_save = FALSE)
+#'
+#' @importFrom Matrix writeMM
+#' @importFrom SoupX load10X autoEstCont adjustCounts
+#' @importFrom grDevices svg dev.off
 run_soupx <- function(fpath, out_save = FALSE, out_dir = "scrnaseq/outs_soupx/", plot_save = FALSE, force = FALSE, verbose = TRUE) {
-  fname <- basename(tools::file_path_sans_ext(fpath))
+  fname <- get_fname(fpath)
   outfile <- paste0(out_dir, fname, "_soupx.mtx")
   if (verbose) {
     message("--- Ambient RNA estimation ---")
@@ -59,7 +63,7 @@ run_soupx <- function(fpath, out_save = FALSE, out_dir = "scrnaseq/outs_soupx/",
       if (!dir.exists(out_dir)) {
         dir.create(out_dir)
       }
-      Matrix::writeMM(soup_out, file = outfile)
+      writeMM(soup_out, file = outfile)
     }
   }
   soup_out
