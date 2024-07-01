@@ -1,12 +1,14 @@
 Package: wakelin
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
-Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+Title: Personal Convenience Functions
+Version: 0.0.1
+Description: Various functions which reduce the overhead of quick workflow and analyses, including for single-cell and bulk RNA-seq data, as well as general statistics.
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
+Imports: 
+    Matrix,
+    SoupX
+Authors@R: 
+    person("Griffen", "Wakelin", , "wakelin@dal.ca", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0001-9339-5387"))

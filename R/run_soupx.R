@@ -5,9 +5,7 @@ run_soupx <- function(fpath, out_save = FALSE, out_dir = "scrnaseq/outs_soupx/",
     message("--- Ambient RNA estimation ---")
   }
   if (file.exists(outfile)) {
-    if (force) {
-      break
-    } else {
+    if (!force) {
       message("File: '", outfile, "' already exists. Skipping.")
       return(NULL)
     }
@@ -24,9 +22,9 @@ run_soupx <- function(fpath, out_save = FALSE, out_dir = "scrnaseq/outs_soupx/",
     if (verbose) {
       message("Estimating contamination; saving soupX plot.")
     }
-    svg(filename = paste0(out_dir, fname, "_soupx_est_cont.svg"))
+    grDevices::svg(filename = paste0(out_dir, fname, "_soupx_est_cont.svg"))
     soup <- SoupX::autoEstCont(soup, doPlot = TRUE, verbose = verbose)
-    dev.off()
+    grDevices::dev.off()
   } else {
     if (verbose) {
       message("Estimating contamination; not saving soupX plot.")
