@@ -36,7 +36,7 @@ run_soupx <- function(fpath, out_save = FALSE, out_dir = "scrnaseq/outs_soupx/",
   if (verbose) {
     message("Opening dataset '", fname, "'...")
   }
-  soup <- SoupX::load10X(fpath, verbose = verbose)
+  soup <- load10X(fpath, verbose = verbose)
   if (plot_save) {
     if (!dir.exists(out_dir)) {
       dir.create(out_dir)
@@ -44,19 +44,19 @@ run_soupx <- function(fpath, out_save = FALSE, out_dir = "scrnaseq/outs_soupx/",
     if (verbose) {
       message("Estimating contamination; saving soupX plot.")
     }
-    grDevices::svg(filename = paste0(out_dir, fname, "_soupx_est_cont.svg"))
-    soup <- SoupX::autoEstCont(soup, doPlot = TRUE, verbose = verbose)
-    grDevices::dev.off()
+    svg(filename = paste0(out_dir, fname, "_soupx_est_cont.svg"))
+    soup <- autoEstCont(soup, doPlot = TRUE, verbose = verbose)
+    dev.off()
   } else {
     if (verbose) {
       message("Estimating contamination; not saving soupX plot.")
     }
-    soup <- SoupX::autoEstCont(soup, doPlot = FALSE, verbose = verbose)
+    soup <- autoEstCont(soup, doPlot = FALSE, verbose = verbose)
   }
   if (verbose) {
     message("Adjusting counts based on estimated contamination.")
   }
-  soup_out <- SoupX::adjustCounts(soup, verbose = 1)
+  soup_out <- adjustCounts(soup, verbose = 1)
   if (out_save) {
     if (verbose) {
       message("Saving soupX outs to '", out_dir, fname, "_soupx.mtx'...")
