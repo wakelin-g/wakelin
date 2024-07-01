@@ -21,7 +21,7 @@
 #' @importFrom DropletUtils read10xCounts emptyDrops barcodeRanks
 #' @importFrom SingleCellExperiment counts
 #' @importFrom S4Vectors metadata
-#' @importFrom readr read_rds
+#' @importFrom readr write_rds
 run_droplet_processing <- function(fpath, out_save = FALSE, out_dir = "scrnaseq/", plot_save = FALSE, force = FALSE, verbose = FALSE, BPPARAM = SerialParam()) {
   fname <- get_fname(fpath)
   outfile <- paste0(out_dir, "sces/", fname, "_droplet.rds")
