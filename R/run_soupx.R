@@ -1,7 +1,7 @@
 #' Run SoupX decontamination
 #'
-#' `run_soupx()` wraps the normal SoupX workflow into a single function for convenience, with options
-#' as to whether the plots and outputs should be saved to disk.
+#' `run_soupx()` wraps the normal SoupX workflow, with default parameters, into a single
+#' function for convenience, with options as to whether the plots and outputs should be saved to disk.
 #'
 #' @param fpath Path to cellranger `outs` directory, which needs to contain `raw_feature_bc_matrix`, `filtered_feature_bc_matrix`, and `analysis` subdirectories.
 #' @param out_save Save SoupX output matrix?
@@ -14,7 +14,8 @@
 #' @export
 #'
 #' @examples
-#' soup <- wakelin::run_soupx(fpath = "scrnaseq/outs/tw2_uninjured/", out_save = TRUE, plot_save = TRUE)
+#' fpath <- "/Users/griffen/Documents/thesis-code/scrnaseq/outs/tw2_uninjured/"
+#' soup <- wakelin::run_soupx(fpath = fpath, out_save = FALSE, plot_save = FALSE)
 run_soupx <- function(fpath, out_save = FALSE, out_dir = "scrnaseq/outs_soupx/", plot_save = FALSE, force = FALSE, verbose = TRUE) {
   fname <- basename(tools::file_path_sans_ext(fpath))
   outfile <- paste0(out_dir, fname, "_soupx.mtx")
