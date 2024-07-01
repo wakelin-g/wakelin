@@ -14,26 +14,27 @@ run_soupx(
 )
 }
 \arguments{
-\item{fpath}{Path to cellranger \code{outs} directory, which needs to contain \code{raw_feature_bc_matrix}, \code{filtered_feature_bc_matrix}, and \code{analysis} subdirectories.}
+\item{fpath}{A character vector indicating cellranger \code{outs} directory, which itself which must contain \code{raw_feature_bc_matrix}, \code{filtered_feature_bc_matrix}, and \code{analysis} subdirectories.}
 
-\item{out_save}{Save SoupX output matrix?}
+\item{out_save}{Logical scalar indicating whether SoupX-corrected matrix should be written to disk.}
 
-\item{out_dir}{Path to output directory where results (and possibly plots) will be saved.}
+\item{out_dir}{A character vector indicating the directory to save outputs in.}
 
-\item{plot_save}{Save SoupX plot?}
+\item{plot_save}{Logical scalar indicating whether SoupX plot should be saved to disk.}
 
-\item{force}{If SoupX output matrix already found, should it be overwritten?}
+\item{force}{Logical scalar indicating that, if the SoupX output is already found, it should be overwritten.}
 
-\item{verbose}{Be verbose?}
+\item{verbose}{Logical scalar indicating whether function should intermittently print status.}
 }
 \value{
-SoupX-corrected gene expression matrix.
+\linkS4class{sparseMatrix} corresponding to SoupX-corrected counts.
 }
 \description{
-\code{run_soupx()} wraps the normal SoupX workflow, with default parameters, into a single
+Wraps the normal SoupX workflow, with default parameters, into a single
 function for convenience, with options as to whether the plots and outputs should be saved to disk.
 }
 \examples{
 fpath <- "/Users/griffen/Documents/thesis-code/scrnaseq/outs/tw2_uninjured/"
 soup <- wakelin::run_soupx(fpath = fpath, out_save = FALSE, plot_save = FALSE)
+
 }

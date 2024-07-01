@@ -1,16 +1,16 @@
 #' Run SoupX decontamination
 #'
-#' `run_soupx()` wraps the normal SoupX workflow, with default parameters, into a single
+#' Wraps the normal SoupX workflow, with default parameters, into a single
 #' function for convenience, with options as to whether the plots and outputs should be saved to disk.
 #'
-#' @param fpath Path to cellranger `outs` directory, which needs to contain `raw_feature_bc_matrix`, `filtered_feature_bc_matrix`, and `analysis` subdirectories.
-#' @param out_save Save SoupX output matrix?
-#' @param out_dir Path to output directory where results (and possibly plots) will be saved.
-#' @param plot_save Save SoupX plot?
-#' @param force If SoupX output matrix already found, should it be overwritten?
-#' @param verbose Be verbose?
+#' @param fpath A character vector indicating cellranger \code{outs} directory, which itself which must contain \code{raw_feature_bc_matrix}, \code{filtered_feature_bc_matrix}, and \code{analysis} subdirectories.
+#' @param out_save Logical scalar indicating whether SoupX-corrected matrix should be written to disk.
+#' @param out_dir A character vector indicating the directory to save outputs in.
+#' @param plot_save Logical scalar indicating whether SoupX plot should be saved to disk.
+#' @param force Logical scalar indicating that, if the SoupX output is already found, it should be overwritten.
+#' @param verbose Logical scalar indicating whether function should intermittently print status.
 #'
-#' @return SoupX-corrected gene expression matrix.
+#' @return \linkS4class{sparseMatrix} corresponding to SoupX-corrected counts.
 #' @export
 #'
 #' @examples
