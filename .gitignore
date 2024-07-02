@@ -4,3 +4,9 @@
 .httr-oauth
 .DS_Store
 .quarto
+.csv
+.mtx
+.tsv
+.csv.gz
+.mtx.gz
+.tsv.gz
