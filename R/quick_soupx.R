@@ -14,7 +14,7 @@
 #' @export
 #'
 #' @examples
-#' fpath <- "/Users/griffen/Documents/thesis-code/scrnaseq/outs/tw2_uninjured/"
+#' fpath <- system.file("extdata", "pbmc5k", package = "wakelin")
 #' soup <- wakelin::run_soupx(fpath = fpath, out_save = FALSE, plot_save = FALSE)
 #'
 #' @importFrom Matrix writeMM
