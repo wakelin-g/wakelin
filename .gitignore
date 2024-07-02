@@ -10,3 +10,5 @@
 .csv.gz
 .mtx.gz
 .tsv.gz
+inst/extdata/pbmc5k/
+inst/extdata/simdata/
