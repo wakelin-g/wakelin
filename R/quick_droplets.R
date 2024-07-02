@@ -15,7 +15,7 @@
 #'
 #' @examples
 #' fpath <- system.file("extdata", "simdata", package = "wakelin")
-#' wakelin::run_droplet_processing(fpath = fpath)
+#' quick_droplets(fpath = fpath)
 #'
 #' @importFrom BiocParallel MulticoreParam SerialParam
 #' @importFrom graphics plot abline legend
@@ -24,7 +24,7 @@
 #' @importFrom SingleCellExperiment counts
 #' @importFrom S4Vectors metadata
 #' @importFrom readr write_rds
-run_droplet_processing <- function(fpath, out_save = FALSE, out_dir = "scrnaseq/", plot_save = FALSE, force = FALSE, verbose = FALSE, BPPARAM = SerialParam()) {
+quick_droplets <- function(fpath, out_save = FALSE, out_dir = "scrnaseq/", plot_save = FALSE, force = FALSE, verbose = FALSE, BPPARAM = SerialParam()) {
   fname <- get_fname(fpath)
   outfile <- paste0(out_dir, "sces/", fname, "_droplet.rds")
   plotting_dir <- paste0(out_dir, "plots/", fname)
