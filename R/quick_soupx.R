@@ -15,12 +15,12 @@
 #'
 #' @examples
 #' fpath <- system.file("extdata", "pbmc5k", package = "wakelin")
-#' soup <- wakelin::run_soupx(fpath = fpath, out_save = FALSE, plot_save = FALSE)
+#' soup <- quick_soupx(fpath = fpath, out_save = FALSE, plot_save = FALSE)
 #'
 #' @importFrom Matrix writeMM
 #' @importFrom SoupX load10X autoEstCont adjustCounts
 #' @importFrom grDevices svg dev.off
-run_soupx <- function(fpath, out_save = FALSE, out_dir = "scrnaseq/outs_soupx/", plot_save = FALSE, force = FALSE, verbose = TRUE) {
+quick_soupx <- function(fpath, out_save = FALSE, out_dir = "scrnaseq/outs_soupx/", plot_save = FALSE, force = FALSE, verbose = TRUE) {
   fname <- get_fname(fpath)
   outfile <- paste0(out_dir, fname, "_soupx.mtx")
 
