@@ -10,6 +10,7 @@
 #'
 #' @examples
 #' sce <- scater::mockSCE()
+#' sce <- scater::runPCA(sce)
 #' sce <- quick_cluster(sce, method = "walktrap", label = "cluster")
 #' str(sce$cluster)
 quick_cluster <- function(sce, method = c("walktrap", "leiden"), label = NULL) {
