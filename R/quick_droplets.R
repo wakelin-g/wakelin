@@ -14,7 +14,9 @@
 #' @export
 #'
 #' @examples
-#' run_droplet_processing(fpath = "/Users/griffen/Documents/thesis-code/scrnaseq/outs/tw2_uninjured/")
+#' fpath <- system.file("extdata", "simdata", package = "wakelin")
+#' wakelin::run_droplet_processing(fpath = fpath)
+#'
 #' @importFrom BiocParallel MulticoreParam SerialParam
 #' @importFrom graphics plot abline legend
 #' @importFrom grDevices svg dev.off
