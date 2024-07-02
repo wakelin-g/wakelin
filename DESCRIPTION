@@ -10,10 +10,14 @@ Imports:
     BiocParallel,
     DropletUtils,
     Matrix,
+    methods,
     readr,
     S4Vectors,
+    scDblFinder,
+    scuttle,
     SingleCellExperiment,
-    SoupX
+    SoupX,
+    sparseMatrixStats
 Authors@R: 
     person("Griffen", "Wakelin", , "wakelin@dal.ca", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-9339-5387"))
