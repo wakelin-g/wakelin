@@ -9,7 +9,7 @@
 #' sce1 <- scater::mockSCE()
 #' sce2 <- scater::mockSCE()
 #' sce.combined <- quick_mnn(sce1, sce2)
-quick_mnn <- function(..., cluster = FALSE) {
+quick_mnn <- function(...) {
   combined <- batchelor::correctExperiments(...)
   combined
 }
