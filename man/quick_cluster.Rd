@@ -21,7 +21,7 @@ Clustered \linkS4class{SingleCellExperiment} with clusters saved in \code{label}
 Quickly cluster \linkS4class{SingleCellExperiment} object
 }
 \examples{
-sce <- scater::mockSCE()
+sce <- scater::mockSCE() |> scater::logNormCounts() |> scater::runPCA()
 sce <- quick_cluster(sce, method = "walktrap", label = "cluster")
 str(sce$cluster)
 }
