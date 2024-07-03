@@ -6,8 +6,8 @@
 #' @export
 #'
 #' @examples
-#' sce1 <- scater::mockSCE()
-#' sce2 <- scater::mockSCE()
+#' sce1 <- scater::mockSCE() |> scater::logNormCounts()
+#' sce2 <- scater::mockSCE() |> scater::logNormCounts()
 #' sce.combined <- quick_mnn(sce1, sce2)
 quick_mnn <- function(...) {
   combined <- batchelor::correctExperiments(...)

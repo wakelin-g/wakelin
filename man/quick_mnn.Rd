@@ -4,7 +4,7 @@
 \alias{quick_mnn}
 \title{MNN Integrate \linkS4class{SingleCellExperiment} Objects}
 \usage{
-quick_mnn(..., cluster = FALSE)
+quick_mnn(...)
 }
 \arguments{
 \item{...}{\linkS4class{SingleCellExperiment} classes to be MNN-integrated.}
@@ -16,7 +16,7 @@ quick_mnn(..., cluster = FALSE)
 MNN Integrate \linkS4class{SingleCellExperiment} Objects
 }
 \examples{
-sce1 <- scater::mockSCE()
-sce2 <- scater::mockSCE()
+sce1 <- scater::mockSCE() |> scater::logNormCounts()
+sce2 <- scater::mockSCE() |> scater::logNormCounts()
 sce.combined <- quick_mnn(sce1, sce2)
 }
